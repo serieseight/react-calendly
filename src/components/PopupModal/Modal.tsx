@@ -3,7 +3,7 @@ import * as ReactDom from "react-dom";
 import ModalContent, { Props as ModalContentProps } from "./ModalContent";
 
 interface Props extends ModalContentProps {
-  onModalClose: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onModalClose: (e: React.MouseEvent<HTMLElement>) => void;
   open: boolean;
   rootElement: HTMLElement;
 }
@@ -13,10 +13,10 @@ export default (props: Props) => {
 
   return ReactDom.createPortal(
     <div className="calendly-overlay">
-      <div 
-        onClick={props.onModalClose} 
-        className="calendly-close-overlay">
-      </div>
+      <div
+        onClick={props.onModalClose}
+        className="calendly-close-overlay"
+      ></div>
       <div className="calendly-popup">
         <div className="calendly-popup-content">
           <ModalContent {...props} />
